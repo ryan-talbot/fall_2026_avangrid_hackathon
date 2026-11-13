@@ -1,3 +1,16 @@
+**Latest business/analytics addendum:** [DECISION_EVIDENCE.md](DECISION_EVIDENCE.md)
+resolves the sixth comparison as a separately labeled tie, certifies 40 target
+queries with five narrow transition regions, and adds ranked review queues plus
+secondary frozen-rule diagnostics. Older figures/results below remain preserved
+snapshots; use the addendum for current claims.
+
+# Latest finalization update
+
+Read [FINAL_CODE_HANDOFF.md](FINAL_CODE_HANDOFF.md) first. It adds the four-point
+target sweep, fixed-rule benchmarks, annualized/export/operating sensitivities,
+new appendix panels and the single final acceptance command. Earlier assets
+below are preserved baseline snapshots; use the latest guide for current claims.
+
 # ClearGrid slide teammate handoff
 
 All paths below are relative to the repository root. Every listed SVG has a
@@ -124,8 +137,9 @@ Unresolved: G6's home optimum; exact G1/G2 home equipment choices and costs;
 appliance subtypes, water heaters, pools, hot tubs and storage ownership;
 control/enrollment costs and participation; actual solar surplus/export value;
 tariffs and bill savings; shared interconnection/site/O&M costs; service
-upgrades and avoided infrastructure value. No finer target sweep or annualized
-business case was completed. The installed-price sensitivity covers the
+upgrades and avoided infrastructure value. The final supplement adds four
+tested targets and assumed annualized cost scenarios; it does not establish
+tariff-based savings or a complete field business case. The price sensitivity covers the
 $9,250 showcase headroom without inventing those missing values.
 
 ## Exact rerun commands
@@ -140,9 +154,7 @@ without regenerating the preserved historical figures:
 .\.venv\Scripts\python.exe src/submission_figures.py
 .\.venv\Scripts\python.exe src/business_stress.py --summarize
 .\.venv\Scripts\python.exe src/business_figures.py
- .\.venv\Scripts\python.exe src/rubric_review.py
-.\.venv\Scripts\python.exe src/verify_submission.py
-.\.venv\Scripts\python.exe src/package_submission.py
+ .\.venv\Scripts\python.exe src/finalize.py
 ```
 
 To deliberately rerun the entire analysis from authorized local inputs:
@@ -156,9 +168,7 @@ To deliberately rerun the entire analysis from authorized local inputs:
 .\.venv\Scripts\python.exe src/submission_figures.py
 .\.venv\Scripts\python.exe src/business_stress.py
 .\.venv\Scripts\python.exe src/business_figures.py
-.\.venv\Scripts\python.exe src/rubric_review.py
-.\.venv\Scripts\python.exe src/verify_submission.py
-.\.venv\Scripts\python.exe src/package_submission.py
+.\.venv\Scripts\python.exe src/finalize.py
 ```
 
 The full rerun intentionally regenerates stage outputs. The baseline snapshot
@@ -189,7 +199,7 @@ CHECKPOINT.md, MILESTONE.md, FINAL_VALIDATION.md and this guide. Review first:
 
 ```powershell
 git status --short --untracked-files=all
-git add README.md requirements.txt requirements-analysis.txt AGENTS.md PROJECT_BRIEF.md CHECKPOINT.md MILESTONE.md FINAL_VALIDATION.md SUBMISSION_HANDOFF.md RUBRIC_ALIGNMENT.md src/*.py config/*.json
+git add -A -- README.md .gitattributes requirements*.txt docs src config deck
 git diff --cached --stat
 git status --short
 ```
@@ -224,3 +234,5 @@ representative feeder sample or held-out success for full-record-sized equipment
 The finished PowerPoint still requires assembly and render review. The new rubric
 review source/documentation must be committed and pushed if repository handoff
 should include this revision; generated figures and ZIPs remain local and ignored.
+
+The latest selected aggregate export is now in `deck/` for GitHub. Do not force-add original `data/` outputs; the exporter uses a strict aggregate-only allowlist.

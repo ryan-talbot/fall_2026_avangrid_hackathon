@@ -1,282 +1,95 @@
-# Avangrid Energy Innovation Hackathon
+# ClearGrid — Avangrid hackathon
 
-## Local data setup (required; never committed)
+ClearGrid turns hourly meter and weather evidence into customer outreach
+recommendations and compares managed charging, home batteries and shared
+storage at a common peak-demand cap.
 
-Use 64-bit Python 3.12. Obtain the organizer inputs through the authorized
-hackathon SharePoint folder and keep them on this machine. The code does not
-download or send inputs to external services.
+**Making the PowerPoint? Start with [the AI/teammate handoff](deck/AI_HANDOFF.md).**
+GitHub includes aggregate PNG/SVG charts, chart data, 65 source-linked claims,
+methods, assumptions and a slide outline. Raw organizer data, meter IDs and
+household profiles stay local.
 
-```powershell
-New-Item -ItemType Directory -Force data/raw, data/materials, data/config | Out-Null
-```
+## Find what you need
 
-Put these six organizer files in `data/raw/`, keeping their supplied names:
+| Task | Start here |
+|---|---|
+| Build slides or give another AI the project | [AI handoff](deck/AI_HANDOFF.md) — copyable prompt and reading order |
+| Browse visuals and captions | [Figure catalog](deck/README.md) |
+| Read the latest results | [Aggregate results](deck/evidence/results.json), [decision evidence](docs/DECISION_EVIDENCE.md) |
+| Check an exact slide claim | [65-claim register](deck/evidence/claims.json), [chart CSVs](deck/evidence/) |
+| Understand the rubric and limitations | [Rubric crosswalk](docs/RUBRIC_ALIGNMENT.md) |
+| Install, obtain inputs or rerun from scratch | [Complete runbook](docs/RUNBOOK.md) |
+| Review the original scope | [PROJECT_BRIEF.md](PROJECT_BRIEF.md) — prior results are historical checkpoints |
+| Inspect algorithms | [Code map](src/README.md), [source](src/) |
 
-- `2026 Avangrid Hackathon Data_1_10000.zip`
-- `2026 Avangrid Hackathon Data_10001_20000_v2.zip`
-- `2026 Avangrid Hackathon Data_20001_30000.zip`
-- `2026 Avangrid Hackathon Data_30001_35725.zip`
-- `EV_Heat Pump_Solar PV Customers.xlsx`
-- `Weather Data_Avangrid_Hackathon .xlsx` (space before `.xlsx`)
+## Supported headline results
 
-Put the four organizer PDFs (challenge, rubric, kickoff, dictionary) in
-`data/materials/`. The audit identifies them from their contents. To initialize
-local configs without overwriting existing IDs:
+- Verified synthetic 30-home group: **80.153 kW** July 3 peak,
+  **2,184 / 2,208** common summer hours, diversity **2.022744**.
+- At 15% reduction: shared **12.5 kW / 55 kWh, $50,750** versus homes
+  **23.04 kW / 60.48 kWh, $60,000**. Prices are assumptions.
+- Forty historical target queries certify 80 minimum-cost option results.
+  Equipment steps create five transition regions, each narrower than
+  **0.01 percentage point**; this is not one smooth crossover.
+- Six additional groups: original time-boxed run five shared wins and one
+  unresolved; separate refinement certifies the last as a **$34,500 tie**.
+  Two wins use home lower bounds, not solved home costs.
+- Original held-out recovery: **EV 17/90 at top 1,000; heating proxy 4/43 at
+  top 500**. Unlisted status is unknown. These are not precision scores.
+- Smaller excluded-date designs fail July 1–4 replay. Larger designs pass
+  after sizing on the full historical record, including those dates.
 
-```powershell
-if (-not (Test-Path -LiteralPath data/config/original_showcase.json)) {
-    Copy-Item -LiteralPath config/original_showcase.template.json -Destination data/config/original_showcase.json
-}
-if (-not (Test-Path -LiteralPath data/config/original_historical_fleet.json)) {
-    Copy-Item -LiteralPath config/original_historical_fleet.template.json -Destination data/config/original_historical_fleet.json
-}
-```
+Measured inputs, estimated appliance evidence, simulated operation and assumed
+costs remain distinct. No verified bill savings, complete appliance ownership
+inventory, actual feeder grouping or field guarantee is established.
 
-Fill the empty `customer_numbers` array in **local**
-`data/config/original_showcase.json` with the authorized 30 IDs in their exact
-original order. Get that list from the team privately; no IDs are embedded in
-the source or templates. All of `data/` except `.gitkeep` is Git-ignored. Never
-force-add organizer data, meter lists, caches, household outputs or profile
-figures. First ingestion uses a local memory-mapped cache; allow at least 2 GB
-of extra disk space beyond the supplied ZIPs.
+## Run the code
 
-## Setup
-
-From the repo root in Windows PowerShell with Python 3.12:
+Use 64-bit Python 3.12. From the repository root in PowerShell:
 
 ```powershell
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements.txt
-```
-
-For the reproducible command-line handoff, the tested direct dependency
-versions are pinned in `requirements-analysis.txt` (no notebook UI needed):
-
-```powershell
-.\.venv\Scripts\python.exe -m pip install -r requirements-analysis.txt
-```
-
-`requirements.txt` retains the original optional notebook/exploration packages.
-
-To launch JupyterLab:
-
-```powershell
-.\.venv\Scripts\python.exe -m jupyterlab
-```
-
-- `data/` - Local datasets, ignored by Git.
-- `notebooks/` - Exploratory analysis.
-- `src/` - Python scripts as needed.
-- `assets/` - Figures, CAD renders, and presentation assets.
-
-## First implementation checkpoint
-
-From the repository root, after installing requirements:
-
-```powershell
-.\.venv\Scripts\python.exe src/checkpoint.py
-```
-
-This runs hand-computable tests, reads both workbooks, CRC-checks all four ZIPs,
-builds a chunked local AMI cache if needed, and solves the 10% and 15% storage
-comparisons. First run reads about 298 million rows; subsequent runs reuse
-`data/processed/ami.npy` and `counts.npy`. Keep at least 2 GB free for the cache
-and use a 64-bit Python. Home sizing enumerates small placements at a proven
-cost lower bound and verifies them with full-horizon linear dispatch. If no
-bound-attaining design is found, a mixed-integer fallback has a 300-second
-solver limit; inspect the recorded status and gap before claiming minimum cost.
-
-Outputs stay local in ignored `data/processed/`: `inventory.json`,
-`coverage.json`, `showcase_results.json`, aggregate hourly dispatch CSVs,
-`checkpoint_summary.md`, `july3_dispatch.png`, and a local showcase ID array.
-Do not commit that directory.
-See [CHECKPOINT.md](CHECKPOINT.md) for methods, source inventory and limitations.
-
-To run the small checks alone:
-
-```powershell
-.\.venv\Scripts\python.exe src/test_model.py
-```
-
-To replay with the existing local cache without repeating the archive audit:
-
-```powershell
-.\.venv\Scripts\python.exe src/showcase.py
-```
-
-To rerun the original 30 homes in their supplied display order:
-
-```powershell
-.\.venv\Scripts\python.exe src/checkpoint.py --ids-config data/config/original_showcase.json
-```
-
-The local JSON config contains `customer_numbers` (exactly 30 distinct integer
-IDs, in display order) and `expected_inputs`. It is excluded by the existing
-`data/` Git ignore rule; do not copy the IDs into tracked code. This option
-bypasses the random sampler. It requires the existing 99.5% coverage screen
-and checks the measured peak, peak hour, common complete hours, and diversity
-before any storage sizing. A failed check stops the run. Peak tolerance is
-0.00001 kW and diversity tolerance is 0.000001, allowing float32 cache rounding.
-
-Explicit-ID outputs default to `data/processed/original_showcase/`, preserving
-the earlier random-group outputs. `--output-dir` can select another local
-directory. To check only the inputs, use:
-
-```powershell
-.\.venv\Scripts\python.exe src/showcase.py --ids-config data/config/original_showcase.json --check-inputs-only
-```
-
-If raw data change, remove the local generated cache files before rerunning;
-the cache is not automatically invalidated. The code never downloads inputs.
-Tested versions: Python 3.12, NumPy 2.5.4, pandas 3.1.1, SciPy 1.18.1,
-openpyxl 3.1.5, matplotlib 3.11.2, pypdf 7.0.1.
-
-## Screening, program offers, and managed charging
-
-After the verified original showcase exists, run:
-
-```powershell
-.\.venv\Scripts\python.exe src/milestone.py
-```
-
-This preserves the unshifted results in local `data/processed/baseline_unshifted_v1/`
-with a hash manifest. It screens the >=95%-coverage population using frozen,
-label-blind rules; evaluates held-out reference-list recovery at fixed outreach
-sizes; creates population and 30-home customer-to-offer tables; and simulates
-50% of estimated eligible EV-like components being movable before 06:00.
-It then resizes both battery alternatives on the exact same shifted load at
-the original 15% cap. All inputs and customer outputs stay local and ignored.
-
-Review `data/processed/milestone_screening/milestone_summary.md`,
-`showcase_customer_to_offer.csv`, `showcase_offers.md`, `screening_summary.json`,
-and `milestone_results.json`. Dispatch CSVs, job energy/deadline checks, rule
-hashes, reference splits and figures are in that same directory.
-See [MILESTONE.md](MILESTONE.md) for methods, frozen-rule validation,
-assumptions, actual results and the difference from the prior shifted-kWh figure.
-
-For just the new hand checks:
-
-```powershell
-.\.venv\Scripts\python.exe src/test_screening_managed.py
-```
-
-## Final validation and deck figures
-
-After the verified showcase and screening milestone, run:
-
-```powershell
-.\.venv\Scripts\python.exe src/final_validation.py
-```
-
-This excludes July 1-4 from equipment sizing at the unchanged 68.13005 kW cap,
-freezes equipment and home placements, and replays those 96 hours with a
-current-load/SOC-only controller. SOC carries across midnight; a six-hour
-July 5 extension checks final overnight recharge without adding scored hours.
-The strict holdout uses measured unshifted AMI; screening rules remain frozen.
-
-Results are in `data/processed/final_validation/validation_summary.md` and
-`validation_results.json`. Three figures are exported as 300 dpi PNG and SVG
-under `data/processed/final_validation/figures/`: historical July 3 dispatch,
-10% versus 15% assumed installed costs, and a separate withheld-period causal
-replay figure. Figure manifests, frozen equipment, chronological CSVs and
-per-site audit arrays remain local and ignored.
-See [FINAL_VALIDATION.md](FINAL_VALIDATION.md) for the controller rule,
-training/test boundaries, recharge assumptions, actual failures and figure paths.
-
-To compare those smaller designs with the larger historical 15% equipment
-under the identical causal controller:
-
-```powershell
-.\.venv\Scripts\python.exe src/replay_historical_equipment.py
-```
-
-The larger home fleet uses the original display placements 6, 11 and 19, two
-modules each, specified in ignored `data/config/original_historical_fleet.json`.
-The larger cases are labeled **sized with the full historical record** because
-their sizing used July 1-4. All four replay results are saved in local
-`data/processed/four_design_replay/four_design_summary.md`, with CSV/JSON
-comparisons and per-site audit arrays alongside it. Existing historical cost,
-dispatch and validation figures are not regenerated; their hashes are checked.
-
-## Final submission evidence package
-
-After the checkpoints above, generate the segmentation/example/appliance and
-BTM-placement visuals first:
-
-```powershell
-.\.venv\Scripts\python.exe src/submission_figures.py
-```
-
-The population counts use actual offer flags over 33,674 qualified meters.
-Figures retain overlapping-offer and unknown-status notes and the frozen
-held-out recovery results. The BTM table distinguishes optimizer homes 3, 4, 6
-from the original homes 6, 11, 19; both have the same historical fleet cost.
-All PNGs, SVGs and underlying example/placement evidence stay in ignored
-`data/processed/submission_package/`.
-
-Run the preregistered six-group business test, with a hard one-hour overall
-limit and five-minute worker cap per group:
-
-```powershell
-.\.venv\Scripts\python.exe src/business_stress.py
-```
-
-It records seed 2026111301 and the exact disjoint sampling rule **before**
-solves. No showcase IDs are reused. Each group has its own 15% cap, identical
-common hours for both options, unshifted load and the same model/prices. Every
-attempt, time limit, feasible incumbent and cost bound is retained. Strict
-winners require certified interval separation; unknown comparisons are not
-assigned to the cheaper incumbent. Summarizing an existing completed run only
-(no new sampling or MIP solve):
-
-```powershell
-.\.venv\Scripts\python.exe src/business_stress.py --summarize
-.\.venv\Scripts\python.exe src/business_figures.py
-```
-
-The summary also checks necessary home-module/site costs with the same
-aggregate-energy relaxation used by the verified model. It retains any home
-solver time limit/no-incumbent result. Showcase price sensitivity is generated
-regardless of stress completeness: $9,250 extra shared installed cost removes
-the modeled 15% cost advantage, all else equal. Only 10% and 15% are tested
-showcase targets; no finer sweep is claimed.
-
-All relevant hand checks can be run together:
-
-```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-lock.txt
 .\.venv\Scripts\python.exe -m unittest discover -s src -p "test_*.py" -v
 ```
 
-Verify the full evidence handoff and create local archives:
+The 31 hand checks run without organizer inputs. Follow the [local data setup
+and stage commands](docs/RUNBOOK.md) to reproduce the analysis. Once the verified
+checkpoint outputs exist:
 
 ```powershell
-.\.venv\Scripts\python.exe src/rubric_review.py
-.\.venv\Scripts\python.exe src/verify_submission.py
-.\.venv\Scripts\python.exe src/package_submission.py
+.\.venv\Scripts\python.exe src/finalize.py
 ```
 
-`verify_submission.py` reruns the hand checks, audits frozen source/figure
-hashes, sampling/solver bounds, actual offer denominators, placement evidence,
-heat-wave scope and Git exclusions. The code ZIP is allowlisted to source,
-documentation and safe templates; it contains no `data/` inputs or outputs.
-The separate local deck-asset ZIP contains the requested anonymized figures.
-Both archives stay under ignored `data/processed/submission_package/`.
+This audits inputs, checks frozen results, generates supplemental evidence,
+prepares the aggregate `deck/` export and creates local submission ZIPs.
+`--reuse-input-audit` skips repeat CRC/workbook reads while still checking all
+recorded raw/cache hashes. Separate isolated-environment acceptance passed;
+instructions are in the runbook.
 
-The criterion-by-criterion review and recommended 12-slide story are in
-[RUBRIC_ALIGNMENT.md](RUBRIC_ALIGNMENT.md). The rubric review command reads
-existing verified outputs and creates `cleargrid_rubric_impact`,
-`cleargrid_rubric_workflow`, and `cleargrid_rubric_pilot` as SVG/PNG pairs in
-`data/processed/submission_package/figures/`. These make quantified impact,
-technical rigor, scalability limits and proposed utility actions visible.
-Appliance classification remains partial: reference recovery is not precision,
-and several requested device types are unresolved. No finished PowerPoint is
-present in this repo; its readability and completeness still require review.
+## Layout
 
-The slide teammate's exact paths, captions, supported claims and remaining
-submission actions are in `SUBMISSION_HANDOFF.md`. The PowerPoint still needs
-to be assembled by the slide teammate, with the organizer's team-number/name
-filename and approved SharePoint submission. Only the deck is scored, so keep
-scope, evidence, assumptions and failure results visible on slides.
+```text
+deck/          Aggregate slide figures, chart data and AI handoff
+docs/          Runbook, methods, rubric mapping and detailed evidence
+src/           Analysis, figure generators, verification and hand checks
+config/        Frozen rules, analysis plans and empty private-ID templates
+data/          Authorized local inputs/results — ignored except .gitkeep
+```
 
-PowerPoint and code or analytical tool are due via SharePoint on Friday,
-November 13 at 5:00 PM ET.
+`requirements-lock.txt` pins all tested analysis dependencies;
+`requirements-analysis.txt` pins direct dependencies. `requirements.txt`
+retains the optional notebook tools.
+
+## Restricted local additions
+
+Organizer inputs, cohort IDs, customer CSVs, household profile images and
+per-site audits are excluded from GitHub. Authorized teammates can use the
+ignored `data/processed/submission_package/ClearGrid_deck_evidence.zip` for
+household examples and detailed placement figures through the approved
+hackathon workspace. Keep restricted material in approved local tooling;
+do not upload it to another AI or external service.
+
+The aggregate GitHub handoff supports the main deck. Restricted examples
+require authorized local access. The slide team assembles the PowerPoint and
+checks its numbers and scope labels against the claim register.

@@ -1,0 +1,5 @@
+# Preserve byte hashes of generated aggregate evidence across Git checkouts.
+# Disabling EOL conversion does not prevent GitHub from rendering text/CSV/SVG.
+deck/** -text whitespace=cr-at-eol
+# Matplotlib SVG path serialization contains intentional trailing separators.
+deck/figures/*.svg -whitespace

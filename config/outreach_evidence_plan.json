@@ -1,0 +1,12 @@
+{
+  "version": "cleargrid-outreach-evidence-v1",
+  "planned_review_budgets": {"managed_charging_offer": 1000, "thermostat_offer": 500, "home_battery_offer": 500, "export_eligibility_offer": 500},
+  "ranking": {
+    "managed_charging_offer": ["ev_estimated_summer_evening_kwh", "ev_score"],
+    "thermostat_offer": ["thermal_weather_response_kw", "thermal_score"],
+    "home_battery_offer": ["screened_residual_evening_mean_kw", "summer_evening_p90_kw"],
+    "export_eligibility_offer": ["pv_evidence_score"]
+  },
+  "evaluation": "Evaluate the unchanged frozen primary ranks on the original held-out half and separately on the previously unused development half. No retuning. Secondary recovery is descriptive, not a new ownership-verified or prospectively independent test. Keep original fixed-K primary results unchanged.",
+  "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility."
+}

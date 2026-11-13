@@ -1,0 +1,13 @@
+{
+  "targets": [0.075, 0.10, 0.125, 0.15],
+  "new_target_solver_seconds": 120,
+  "screening_benchmarks": {
+    "EV": ["ev_event_count", "summer_evening_mean_kw"],
+    "HP": ["heating_slope_kw_per_f", "summer_evening_mean_kw"]
+  },
+  "assumed_financial_years": 15,
+  "assumed_discount_rates": [0.0, 0.05, 0.08],
+  "incremental_shared_annual_costs": [0, 500, 1000, 1500],
+  "causal_starting_soc_fractions": [1.0, 0.8, 0.5],
+  "interpretation": "Supplemental fixed analyses; no screening retuning or new untouched validation claim. Prices, financial horizon and rates are scenario assumptions. No field benefit or tariff savings inferred."
+}

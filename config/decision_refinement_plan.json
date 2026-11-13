@@ -1,0 +1,9 @@
+{
+  "version": "cleargrid-decision-refinement-v1",
+  "target_range": [0.075, 0.15],
+  "target_resolution_fraction": 0.0001,
+  "solver_time_limit_seconds": 120,
+  "group6_enumeration_limit_seconds": 600,
+  "method": "Reuse the four certified showcase points. Adaptively split every interval not certified by monotonic optimal-cost endpoint bounds, down to 0.01 percentage point width. Retain every query and every unresolved solver status. Enumerate group 6 home configurations by increasing installed cost, with full-horizon LP verification; preserve the original time-boxed stress results.",
+  "scope": "Unshifted historical loads and unchanged storage/cost assumptions. No new reference tuning, group sampling or independent weather validation. A finite crossover bracket is not an exact continuous threshold."
+}

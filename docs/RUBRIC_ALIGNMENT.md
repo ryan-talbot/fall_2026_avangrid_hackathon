@@ -1,4 +1,17 @@
+**Latest business/analytics addendum:** [DECISION_EVIDENCE.md](DECISION_EVIDENCE.md)
+resolves the sixth comparison as a separately labeled tie, certifies 40 target
+queries with five narrow transition regions, and adds ranked review queues plus
+secondary frozen-rule diagnostics. Older figures/results below remain preserved
+snapshots; use the addendum for current claims.
+
 # ClearGrid: judge-facing rubric review
+
+**Final update:** [FINAL_CODE_HANDOFF.md](FINAL_CODE_HANDOFF.md) now adds four
+solved targets (7.5%, 10%, 12.5%, 15%), retrospective screening benchmarks,
+annualized/export sensitivities, deterministic outage tests and a final claim
+register. Use those results alongside this criterion mapping. Earlier two-target
+assets remain preserved historical snapshots.
+
 
 Reviewed against the organizer's two-page **Hackathon Rubric Criteria** in
 `data/materials/9ccbd22a-24bc-4f39-aca5-917e9af0633e.pdf` and the challenge
@@ -40,10 +53,10 @@ evidence artifact exists; it still needs to be visible in the PowerPoint.
 | Business value | Actionability | Population and 30-home offer tables; specific home placements; proposed confirmation, site study, shadow test and expansion gates. | Partial/proposed. No enrollment or field pilot has occurred; the new pilot panel makes the next action concrete. | 5, 12 |
 | Business value | Battery opportunity assessment | Home hourly no-export dispatch, reserve/power/energy/recharge constraints, actual modules/sites, shared alternative at the same cap. | Supported as a historical planning assessment. The population battery flag is a profile screen, not 5,766 sized installations. | 5, 6 |
 | Business value | Impact quantification | Measured peak 80.153 kW; 68.13005 kW cap; 12.023 kW historical modeled reduction; 19.279 kWh scenario shifting; installed kW/kWh/sites/prices and cap-miss counts. | Supported for these modeled outcomes. Bill savings, real infrastructure capacity relief and electrification enablement are not measured. | 1, 6, 8, 9 |
-| Business value | Quality of recommendations | Two target choices, $9,250 price headroom, six additional groups with bounds, omitted-date failures, proposed field gates. | Supported conditionally. Recommend confirmation/stress-tested pilot assessment, not immediate deployment or verified upgrade deferral. | 7, 9-12 |
+| Business value | Quality of recommendations | Four tested target choices, $9,250 price headroom, six additional groups with bounds, omitted-date failures, proposed field gates. | Supported conditionally. Recommend confirmation/stress-tested pilot assessment, not immediate deployment or verified upgrade deferral. | 7, 9-12 |
 | Analytics **35%** | Customer classification accuracy | Frozen engineering rules; EV held-out recovery 17/90 at K=1,000; heating proxy 4/43 at K=500; example traces; explicit appliance appendix. | **Partial and the main analytic weakness.** Recovery is not precision or complete classification. L1/L2, HP vs resistance, water heating, pools, hot tubs and batteries are unresolved. Do not claim all requested appliances were identified. | 3, 4; appendix |
 | Analytics | Segmentation quality | Four overlapping, quantitatively defined outreach segments, with counts, meter/weather evidence and an Avangrid action for each. | Supported as program-oriented segmentation. These are overlapping rules, not learned/exclusive clusters or confirmed ownership populations. | 3 |
-| Analytics | Data science / technical rigor | Local chunked qualification; repeatable evidence features; label holdout; constrained sizing; energy-conserving 06:00 charging jobs; causal controller; 26 hand checks; certified cost bounds. | Supported. Distinguish perfect-foresight optimization from chronological replay and explain why a solver timeout is not infeasibility. | 2, 8-10 |
+| Analytics | Data science / technical rigor | Local chunked qualification; repeatable evidence features; label holdout; constrained sizing; energy-conserving 06:00 charging jobs; causal controller; 31 hand checks; certified cost bounds. | Supported. Distinguish perfect-foresight optimization from chronological replay and explain why a solver timeout is not infeasibility. | 2, 8-10 |
 | Analytics | Use of available data | AMI, hourly-start aligned temperature and known technology references; duplicated fall weather hour averaged; incomplete AMI excluded. | Supported. No feeder/transformer mapping, generation/export telemetry or storage ownership was supplied; humidity/wind are ingested but not used as classifier predictors. | 2; appendix |
 | Analytics | Transparency / reproducibility | Frozen rule hashes, exact cohort/configs kept local, recorded seed/sampling, all six attempts retained, README, direct dependency pins, runnable commands and provenance manifests. | Supported. Keep the main method and assumptions visible on a slide; a GitHub link is not a substitute for explaining them. | 2, 10; appendix |
 | Communication **15%** | Slide quality | Readable 16:9 SVG and 300 dpi PNG panels; consistent measured/estimated/simulated/assumed labels; revised captions and clear failure labels. | **Final deck unverified.** Check typography, cropping, slide density, source notes and exported PowerPoint rendering after assembly. | All |
@@ -66,7 +79,7 @@ evidence artifact exists; it still needs to be visible in the PowerPoint.
 | 4 | **AMI and weather support a conversation, not a device guarantee.** Two examples + held-out results. | EV recovery is 17/90 at K=1,000 and heating proxy recovery is 4/43 at K=500. Unlisted is unknown; other appliances can resemble these signals. |
 | 5 | **Make the BTM fleet concrete and show its local limit.** Original 6/11/19 table, or explicitly labeled optimizer 3/4/6 table. | Two modules per selected site give 23.04 kW / 60.48 kWh across three sites. A battery cannot reduce a neighbor's bill-meter draw through home export in this model. Placements are not unique. |
 | 6 | **The full July 3 event determines storage need.** Historical dispatch/SOC figure. | The 80.153 kW peak needs 12.023 kW relief at the 68.13005 kW cap, but energy, reserve and recharge over the whole event drive sizing. This curve is perfect foresight. |
-| 7 | **The cheaper historical option depends on target and installed cost.** 10%/15% cost figure. | Homes are $3,000 lower at 10%; shared is $9,250 lower at 15%. We tested two targets and have not located an exact crossover. |
+| 7 | **The cheaper historical option depends on target and installed cost.** 10%/15% cost figure. | Homes are $3,000 lower at 10%; shared is $9,250 lower at 15%. The preserved figure shows two baseline targets; the final appendix adds 7.5% and 12.5%. The preferred option differs at 10% and 12.5%; the exact crossover is unsolved. |
 | 8 | **Managed charging helps some hours but does not remove the critical event.** Managed scenario trace or impact scorecard excerpt. | The assumed 50% estimated EV allowance moves 19.279 kWh on nine dates, none on July 3; charging energy is conserved by 06:00, and storage sizes remain unchanged. Program costs are unknown. |
 | 9 | **Passing historical sizing does not establish held-out reliability.** Four-design scope table. | Smaller omitted-date designs fail 19 and 16 hours. Larger designs pass the same causal replay after their sizing already used these dates. Every audited morning recharged by 06:00. |
 | 10 | **Challenge the business result beyond the showcase.** Six-group table. | Five certified shared wins and one unresolved comparison, including every sampled group. Two wins use home cost lower bounds rather than a completed home optimum. This is not a representative utility sample. |
@@ -136,7 +149,5 @@ numbers, assumption labels or causal failure scopes only in the appendix.
 Rerun this clarity pass without changing frozen results:
 
 ```powershell
-.\.venv\Scripts\python.exe src/rubric_review.py
-.\.venv\Scripts\python.exe src/verify_submission.py
-.\.venv\Scripts\python.exe src/package_submission.py
+.\.venv\Scripts\python.exe src/finalize.py
 ```

@@ -1,0 +1,5 @@
+design,sizing_scope,kw,kwh,sites,assumed_installed_dollars,hours_above_cap,worst_miss_kw
+smaller_shared,July 1-4 withheld from equipment sizing,7.5,15,1,24750,19,12.022950048744676
+smaller_home,July 1-4 withheld from equipment sizing,7.68,20.16,2,23000,16,10.946949745714662
+historical_shared,sized with the full historical record,12.5,55.0,1,50750,0,0.0
+historical_home,sized with the full historical record,23.04,60.480000000000004,3,60000,0,1.4210854715202004e-14

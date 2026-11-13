@@ -38,6 +38,9 @@ def main():
     checks.append('Frozen rules/features, held-out recovery, actual offer counts and denominators match')
     manifests=[ROOT/'data/processed/final_validation/figure_manifest.json',DEST/'submission_figure_manifest.json',DEST/'business_figure_manifest.json']
     manifests.append(DEST/'rubric_figure_manifest.json')
+    manifests.append(ROOT/'data/processed/final_analysis/final_analysis_manifest.json')
+    manifests.append(ROOT/'data/processed/decision_refinement/decision_refinement_manifest.json')
+    manifests.append(ROOT/'data/processed/outreach_evidence/outreach_evidence_manifest.json')
     for path in manifests:
         m=json.loads(path.read_text())
         for key in ['source_sha256','output_sha256','figure_sha256','protected_figure_sha256']:
@@ -78,6 +81,39 @@ def main():
                 assert (f.simulated_grid_kw-f.cap_kw).max()<1e-6
     assert actual==stress['counts']
     checks.append('All six preregistered groups, common-hour/cap equality, physical incumbents and certified/unresolved outcomes checked')
+    from decision_refinement import interval_winner
+    refined=ROOT/'data/processed/decision_refinement';r=json.loads((refined/'decision_refinement_results.json').read_text());show=r['showcase'];queries={q['target']:q for q in show['queries']}
+    assert len(queries)==len(show['queries']) and show['all_queried_points_certified']
+    last=.075
+    for leaf in show['intervals']:
+        assert abs(leaf['left']-last)<1e-12
+        a,b=queries[leaf['left']],queries[leaf['right']]
+        certificate=interval_winner(a,b)
+        if leaf['interval_outcome']=='transition_or_uncertified_bracket':assert leaf['right']-leaf['left']<=r['plan']['target_resolution_fraction']+1e-12
+        else:assert leaf['interval_outcome']==certificate
+        last=leaf['right']
+    assert abs(last-.15)<1e-12
+    for q in queries.values():
+        assert abs(q['cap_kw']-(1-q['target'])*80.15300032496452)<1e-8
+        for name,v in q['options'].items():
+            assert v['installed_cost_interval']['certified_minimum_cost']
+            assert v['max_cap_miss_kw']<=1e-6 and v['max_simultaneous_kw']<=1e-6
+    g6=r['group6'];assert g6['same_load_sha256']==stress['groups'][5]['common_load_sha256'] and g6['same_hours_and_cap']
+    assert g6['outcome']=='tie' and g6['home']['cost']==g6['shared']['cost']==34500 and g6['enumeration']['complete']
+    with np.load(refined/'group6_home_site_audit.npz') as audit:
+        xx=audit['load'];c=audit['charge'];d=audit['discharge'];soc=audit['soc'];grid=audit['grid'];e=np.array(g6['home']['energy_kwh']);p=np.array(g6['home']['power_kw'])
+        tt=pd.DatetimeIndex(pd.read_csv(folder/'group_06/common_hours.csv',parse_dates=['hour_start']).hour_start);starts=np.r_[0,np.flatnonzero(np.diff(tt.values)!=np.timedelta64(1,'h'))+1];ends=np.r_[starts[1:]-1,len(tt)-1]
+        previous=np.column_stack([e,soc[:,:-1]]);previous[:,starts]=e[:,None]
+        assert np.max(np.abs(soc-previous-np.sqrt(.894)*c+d/np.sqrt(.894)))<1e-6
+        assert np.max(np.abs(grid-(xx+c-d)))<1e-6 and np.max(grid.sum(axis=0)-g6['cap_kw'])<1e-6
+        assert grid.min()>=-1e-6 and soc.min()>=-1e-6 and np.min(soc-.2*e[:,None])>=-1e-6
+        assert np.max(soc-e[:,None])<=1e-6 and np.max(c-p[:,None])<=1e-6 and np.max(d-p[:,None])<=1e-6
+        assert np.max(np.minimum(c,d))<1e-6 and np.allclose(soc[:,ends],e[:,None],atol=1e-6,rtol=0)
+    checks.append('Adaptive crossover covers 7.5%-15% with certified intervals and <=0.01pp transition brackets; group6 tie independently physics-audited')
+    outreach=json.loads((ROOT/'data/processed/outreach_evidence/outreach_evidence_results.json').read_text())
+    assert sum(v['count'] for v in outreach['exclusive_offer_combinations'])==len(offers)
+    for v in outreach['program_priorities']:assert v['candidate_count']==summary['offer_counts'][v['offer']] and v['planned_reviews']==min(v['candidate_count'],v['assumed_review_budget'])
+    checks.append('Program review budgets, overlapping candidate counts and exhaustive exclusive offer combinations reconcile; secondary reference diagnostics separately labeled')
     tracked=subprocess.check_output(['git','ls-files'],cwd=ROOT,text=True).splitlines()
     assert all(not p.startswith('data/') or p=='data/.gitkeep' for p in tracked)
     private=[ROOT/'data/raw',ROOT/'data/materials',ROOT/'data/config/original_showcase.json',ROOT/'data/processed/submission_package/figures/cleargrid_outreach_examples.svg',folder/'sampled_groups.npy']

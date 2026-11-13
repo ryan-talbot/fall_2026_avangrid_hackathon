@@ -5,9 +5,20 @@ import numpy as np
 import pandas as pd
 from inventory import ROOT
 
+def raw_fingerprint(folder):
+    return {p.name:{'bytes':p.stat().st_size,'mtime_ns':p.stat().st_mtime_ns}
+            for p in sorted(Path(folder).glob('*.zip'))}
+
+def validate_cache_guard(folder,guard):
+    if Path(guard).exists():
+        recorded=json.loads(Path(guard).read_text())
+        if recorded['raw_zip_stat']!=raw_fingerprint(folder):
+            raise ValueError('AMI input files changed since cache audit/build. Preserve old results and rebuild the AMI cache before analysis.')
+
 def load():
     dest=ROOT/'data/processed'; dest.mkdir(exist_ok=True)
     path=dest/'ami.npy'
+    validate_cache_guard(ROOT/'data/raw',dest/'cache_input_guard.json')
     if not (dest/'coverage.json').exists():
         a=np.lib.format.open_memmap(path, mode='w+', dtype='float32', shape=(35726,8760)); a[:]=np.nan
         stats={'rows':0,'excluded_rows':0,'duplicate_slots':0,'conflicting_slots':0}
@@ -36,6 +47,7 @@ def load():
         np.save(dest/'counts.npy',counts)
         stats.update(population_95=int((counts>=.95*8760).sum()),showcase_995=int((counts>=.995*8760).sum()))
         (dest/'coverage.json').write_text(json.dumps(stats,indent=2))
+        (dest/'cache_input_guard.json').write_text(json.dumps({'raw_zip_stat':raw_fingerprint(ROOT/'data/raw'),'scope':'Recorded at completed cache build; fast size/mtime change guard. Final release audit also hashes inputs.'},indent=2))
     return np.load(path,mmap_mode='r'), np.load(dest/'counts.npy')
 
 if __name__=='__main__': load()

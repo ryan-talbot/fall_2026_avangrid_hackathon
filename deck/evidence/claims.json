@@ -1,0 +1,992 @@
+{
+  "claims": [
+    {
+      "claim": "summer_peak_kw",
+      "value": 80.15300032496452,
+      "unit": "kW",
+      "evidence_type": "measured",
+      "source": "data\\processed\\baseline_unshifted_v1\\showcase_results.json",
+      "scope": "Same 30 homes and common complete summer hours"
+    },
+    {
+      "claim": "summer_hours",
+      "value": 2184,
+      "unit": "hours",
+      "evidence_type": "measured",
+      "source": "data\\processed\\baseline_unshifted_v1\\showcase_results.json",
+      "scope": "Same 30 homes and common complete summer hours"
+    },
+    {
+      "claim": "summer_diversity",
+      "value": 2.022743992509038,
+      "unit": "ratio",
+      "evidence_type": "measured",
+      "source": "data\\processed\\baseline_unshifted_v1\\showcase_results.json",
+      "scope": "Same 30 homes and common complete summer hours"
+    },
+    {
+      "claim": "managed_charging_offer",
+      "value": 17493,
+      "unit": "candidates",
+      "evidence_type": "estimated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Overlapping offers; denominator 33,674; ownership unknown unless reference-listed"
+    },
+    {
+      "claim": "thermostat_offer",
+      "value": 7593,
+      "unit": "candidates",
+      "evidence_type": "estimated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Overlapping offers; denominator 33,674; ownership unknown unless reference-listed"
+    },
+    {
+      "claim": "home_battery_offer",
+      "value": 5766,
+      "unit": "candidates",
+      "evidence_type": "estimated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Overlapping offers; denominator 33,674; ownership unknown unless reference-listed"
+    },
+    {
+      "claim": "export_eligibility_offer",
+      "value": 393,
+      "unit": "candidates",
+      "evidence_type": "estimated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Overlapping offers; denominator 33,674; ownership unknown unless reference-listed"
+    },
+    {
+      "claim": "EV_reference_recovery",
+      "value": {
+        "hits": 17,
+        "denominator": 90,
+        "K": 1000
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Partial likely references; unlisted unknown; no precision; HP is a heating proxy"
+    },
+    {
+      "claim": "HP_reference_recovery",
+      "value": {
+        "hits": 4,
+        "denominator": 43,
+        "K": 500
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\milestone_screening\\screening_summary.json",
+      "scope": "Partial likely references; unlisted unknown; no precision; HP is a heating proxy"
+    },
+    {
+      "claim": "7.5%_shared",
+      "value": {
+        "installed_dollars": 28000,
+        "kw": 7.5,
+        "kwh": 20.0,
+        "sites": 1,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 28000,
+          "upper": 28000.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 119.2,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "7.5%_home",
+      "value": {
+        "installed_dollars": 20000,
+        "kw": 7.68,
+        "kwh": 20.16,
+        "sites": 1,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 20000,
+          "upper": 20000.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 10.063872,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "10.0%_shared",
+      "value": {
+        "installed_dollars": 34500,
+        "kw": 10.0,
+        "kwh": 30.0,
+        "sites": 1,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 34500,
+          "upper": 34500.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 119.2,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "10.0%_home",
+      "value": {
+        "installed_dollars": 31500,
+        "kw": 11.52,
+        "kwh": 30.240000000000002,
+        "sites": 2,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 31500,
+          "upper": 31500.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 10.063872,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "12.5%_shared",
+      "value": {
+        "installed_dollars": 44250,
+        "kw": 12.5,
+        "kwh": 45.0,
+        "sites": 1,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 44250,
+          "upper": 44250.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 119.2,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "12.5%_home",
+      "value": {
+        "installed_dollars": 51500,
+        "kw": 19.2,
+        "kwh": 50.4,
+        "sites": 3,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 51500,
+          "upper": 51500.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 10.063872,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "15.0%_shared",
+      "value": {
+        "installed_dollars": 50750,
+        "kw": 12.5,
+        "kwh": 55.0,
+        "sites": 1,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 50750,
+          "upper": 50750.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 119.2,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "15.0%_home",
+      "value": {
+        "installed_dollars": 60000,
+        "kw": 23.04,
+        "kwh": 60.480000000000004,
+        "sites": 3,
+        "status": 0,
+        "cost_bounds": {
+          "lower": 60000,
+          "upper": 60000.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 10.063872,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "equipment / dollars",
+      "evidence_type": "simulated_with_assumed_prices",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Perfect-foresight unshifted historical sizing; compare only physically verified feasible incumbents"
+    },
+    {
+      "claim": "managed_shift",
+      "value": 19.27899805573996,
+      "unit": "kWh",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\milestone_screening\\milestone_results.json",
+      "scope": "50% estimated eligible EV component movable, 06:00 deadline; none moved on July 3; program costs unknown"
+    },
+    {
+      "claim": "smaller_shared",
+      "value": {
+        "hours_above_cap": 19,
+        "worst_miss_kw": 12.022950048744676
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\four_design_replay\\four_design_results.json",
+      "scope": "July 1-4 withheld from equipment sizing"
+    },
+    {
+      "claim": "smaller_home",
+      "value": {
+        "hours_above_cap": 16,
+        "worst_miss_kw": 10.946949745714662
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\four_design_replay\\four_design_results.json",
+      "scope": "July 1-4 withheld from equipment sizing"
+    },
+    {
+      "claim": "historical_shared",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 0.0
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\four_design_replay\\four_design_results.json",
+      "scope": "sized with the full historical record"
+    },
+    {
+      "claim": "historical_home",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 1.4210854715202004e-14
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\four_design_replay\\four_design_results.json",
+      "scope": "sized with the full historical record"
+    },
+    {
+      "claim": "EV_ev_score",
+      "value": {
+        "hits": 17,
+        "denominator": 90,
+        "K": 1000
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "EV_ev_event_count",
+      "value": {
+        "hits": 13,
+        "denominator": 90,
+        "K": 1000
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "EV_summer_evening_mean_kw",
+      "value": {
+        "hits": 9,
+        "denominator": 90,
+        "K": 1000
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "HP_heating_score",
+      "value": {
+        "hits": 4,
+        "denominator": 43,
+        "K": 500
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "HP_heating_slope_kw_per_f",
+      "value": {
+        "hits": 4,
+        "denominator": 43,
+        "K": 500
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "HP_summer_evening_mean_kw",
+      "value": {
+        "hits": 1,
+        "denominator": 43,
+        "K": 500
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Retrospective benchmark on already examined held-out references; no retuning or new untouched validation. References are partial likely labels; unlisted unknown; no precision."
+    },
+    {
+      "claim": "historical_shared_starting_charge_1.0",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 0.0
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_shared_starting_charge_0.8",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 0.0
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_shared_starting_charge_0.5",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 0.0
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_shared_shared_site_unavailable_1.0",
+      "value": {
+        "hours_above_cap": 29,
+        "worst_miss_kw": 12.022950048744676
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_starting_charge_1.0",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 1.4210854715202004e-14
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_starting_charge_0.8",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 1.4210854715202004e-14
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_starting_charge_0.5",
+      "value": {
+        "hours_above_cap": 0,
+        "worst_miss_kw": 1.4210854715202004e-14
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_one_home_site_unavailable_6",
+      "value": {
+        "hours_above_cap": 7,
+        "worst_miss_kw": 3.169343826135403
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_one_home_site_unavailable_11",
+      "value": {
+        "hours_above_cap": 7,
+        "worst_miss_kw": 6.5113433569276395
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "historical_home_one_home_site_unavailable_19",
+      "value": {
+        "hours_above_cap": 7,
+        "worst_miss_kw": 4.937343475183255
+      },
+      "unit": "hours / kW",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "sized with the full historical record; operating scenario, not prospective reliability"
+    },
+    {
+      "claim": "annualized_cost_0.0_0",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.0,
+        "capital_recovery_factor": 0.06666666666666667,
+        "incremental_shared_annual_cost": 0,
+        "annualized_home_capital_cost": 4000.0,
+        "annualized_shared_capital_cost": 3383.3333333333335,
+        "annualized_shared_advantage_after_incremental_cost": 616.6666666666666,
+        "maximum_shared_upfront_cost": 60000.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.0_500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.0,
+        "capital_recovery_factor": 0.06666666666666667,
+        "incremental_shared_annual_cost": 500,
+        "annualized_home_capital_cost": 4000.0,
+        "annualized_shared_capital_cost": 3383.3333333333335,
+        "annualized_shared_advantage_after_incremental_cost": 116.66666666666663,
+        "maximum_shared_upfront_cost": 52500.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.0_1000",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.0,
+        "capital_recovery_factor": 0.06666666666666667,
+        "incremental_shared_annual_cost": 1000,
+        "annualized_home_capital_cost": 4000.0,
+        "annualized_shared_capital_cost": 3383.3333333333335,
+        "annualized_shared_advantage_after_incremental_cost": -383.33333333333337,
+        "maximum_shared_upfront_cost": 45000.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.0_1500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.0,
+        "capital_recovery_factor": 0.06666666666666667,
+        "incremental_shared_annual_cost": 1500,
+        "annualized_home_capital_cost": 4000.0,
+        "annualized_shared_capital_cost": 3383.3333333333335,
+        "annualized_shared_advantage_after_incremental_cost": -883.3333333333334,
+        "maximum_shared_upfront_cost": 37500.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.05_0",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.05,
+        "capital_recovery_factor": 0.09634228760924433,
+        "incremental_shared_annual_cost": 0,
+        "annualized_home_capital_cost": 5780.53725655466,
+        "annualized_shared_capital_cost": 4889.37109616915,
+        "annualized_shared_advantage_after_incremental_cost": 891.1661603855101,
+        "maximum_shared_upfront_cost": 60000.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.05_500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.05,
+        "capital_recovery_factor": 0.09634228760924433,
+        "incremental_shared_annual_cost": 500,
+        "annualized_home_capital_cost": 5780.53725655466,
+        "annualized_shared_capital_cost": 4889.37109616915,
+        "annualized_shared_advantage_after_incremental_cost": 391.1661603855101,
+        "maximum_shared_upfront_cost": 54810.1709809097,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.05_1000",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.05,
+        "capital_recovery_factor": 0.09634228760924433,
+        "incremental_shared_annual_cost": 1000,
+        "annualized_home_capital_cost": 5780.53725655466,
+        "annualized_shared_capital_cost": 4889.37109616915,
+        "annualized_shared_advantage_after_incremental_cost": -108.83383961448988,
+        "maximum_shared_upfront_cost": 49620.3419618194,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.05_1500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.05,
+        "capital_recovery_factor": 0.09634228760924433,
+        "incremental_shared_annual_cost": 1500,
+        "annualized_home_capital_cost": 5780.53725655466,
+        "annualized_shared_capital_cost": 4889.37109616915,
+        "annualized_shared_advantage_after_incremental_cost": -608.8338396144899,
+        "maximum_shared_upfront_cost": 44430.5129427291,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.08_0",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.08,
+        "capital_recovery_factor": 0.11682954493601999,
+        "incremental_shared_annual_cost": 0,
+        "annualized_home_capital_cost": 7009.7726961612,
+        "annualized_shared_capital_cost": 5929.099405503014,
+        "annualized_shared_advantage_after_incremental_cost": 1080.673290658185,
+        "maximum_shared_upfront_cost": 60000.0,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.08_500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.08,
+        "capital_recovery_factor": 0.11682954493601999,
+        "incremental_shared_annual_cost": 500,
+        "annualized_home_capital_cost": 7009.7726961612,
+        "annualized_shared_capital_cost": 5929.099405503014,
+        "annualized_shared_advantage_after_incremental_cost": 580.6732906581849,
+        "maximum_shared_upfront_cost": 55720.260656036815,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.08_1000",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.08,
+        "capital_recovery_factor": 0.11682954493601999,
+        "incremental_shared_annual_cost": 1000,
+        "annualized_home_capital_cost": 7009.7726961612,
+        "annualized_shared_capital_cost": 5929.099405503014,
+        "annualized_shared_advantage_after_incremental_cost": 80.6732906581849,
+        "maximum_shared_upfront_cost": 51440.52131207362,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "annualized_cost_0.08_1500",
+      "value": {
+        "assumed_years": 15,
+        "assumed_discount_rate": 0.08,
+        "capital_recovery_factor": 0.11682954493601999,
+        "incremental_shared_annual_cost": 1500,
+        "annualized_home_capital_cost": 7009.7726961612,
+        "annualized_shared_capital_cost": 5929.099405503014,
+        "annualized_shared_advantage_after_incremental_cost": -419.3267093418151,
+        "maximum_shared_upfront_cost": 47160.78196811044,
+        "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+      },
+      "unit": "dollars / year",
+      "evidence_type": "assumed_financial_scenario",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Assumed equal financial horizon; incremental recurring cost includes any net O&M/program/energy cost. No measured bill savings, tariff, degradation, replacement, salvage or avoided upgrade value."
+    },
+    {
+      "claim": "home_export_permission_sensitivity",
+      "value": {
+        "installed_dollars": 60000,
+        "necessary_cost_lower_bound": 60000,
+        "minimum_cost_certified": true
+      },
+      "unit": "dollars",
+      "evidence_type": "simulated",
+      "source": "data\\processed\\final_analysis\\final_analysis_results.json",
+      "scope": "Mathematical export-permission sensitivity only; no export tariff, permission, solar generation or revenue assumed. Shared aggregate boundary unchanged."
+    },
+    {
+      "claim": "preference_transition_0.07675781250000001",
+      "value": {
+        "left": 0.07675781250000001,
+        "right": 0.07685546875000002,
+        "left_outcome": "home_win",
+        "right_outcome": "shared_win",
+        "interval_outcome": "transition_or_uncertified_bracket",
+        "certificate": "Resolution reached; no claim inside interval",
+        "width_percentage_points": 0.009765625000000833
+      },
+      "unit": "target fraction / percentage points",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Finite-resolution transition region; no exact continuous threshold or single-switch claim"
+    },
+    {
+      "claim": "preference_transition_0.08818359374999998",
+      "value": {
+        "left": 0.08818359374999998,
+        "right": 0.08828124999999999,
+        "left_outcome": "shared_win",
+        "right_outcome": "home_win",
+        "interval_outcome": "transition_or_uncertified_bracket",
+        "certificate": "Resolution reached; no claim inside interval",
+        "width_percentage_points": 0.009765625000000833
+      },
+      "unit": "target fraction / percentage points",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Finite-resolution transition region; no exact continuous threshold or single-switch claim"
+    },
+    {
+      "claim": "preference_transition_0.1005859375",
+      "value": {
+        "left": 0.1005859375,
+        "right": 0.10068359375,
+        "left_outcome": "home_win",
+        "right_outcome": "shared_win",
+        "interval_outcome": "transition_or_uncertified_bracket",
+        "certificate": "Resolution reached; no claim inside interval",
+        "width_percentage_points": 0.009765624999999445
+      },
+      "unit": "target fraction / percentage points",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Finite-resolution transition region; no exact continuous threshold or single-switch claim"
+    },
+    {
+      "claim": "preference_transition_0.11181640625",
+      "value": {
+        "left": 0.11181640625,
+        "right": 0.11191406250000001,
+        "left_outcome": "shared_win",
+        "right_outcome": "home_win",
+        "interval_outcome": "transition_or_uncertified_bracket",
+        "certificate": "Resolution reached; no claim inside interval",
+        "width_percentage_points": 0.009765625000000833
+      },
+      "unit": "target fraction / percentage points",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Finite-resolution transition region; no exact continuous threshold or single-switch claim"
+    },
+    {
+      "claim": "preference_transition_0.12431640625000001",
+      "value": {
+        "left": 0.12431640625000001,
+        "right": 0.1244140625,
+        "left_outcome": "home_win",
+        "right_outcome": "shared_win",
+        "interval_outcome": "transition_or_uncertified_bracket",
+        "certificate": "Resolution reached; no claim inside interval",
+        "width_percentage_points": 0.009765624999999445
+      },
+      "unit": "target fraction / percentage points",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Finite-resolution transition region; no exact continuous threshold or single-switch claim"
+    },
+    {
+      "claim": "group6_post_budget_refinement",
+      "value": {
+        "outcome": "tie",
+        "home_cost_bounds": {
+          "lower": 34500,
+          "upper": 34500.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 10.063872,
+          "proven_infeasible": false
+        },
+        "shared_cost_bounds": {
+          "lower": 34500,
+          "upper": 34500.0,
+          "incumbent_physically_verified": true,
+          "certified_minimum_cost": true,
+          "auxiliary_objective_bound_subtracted": 119.2,
+          "proven_infeasible": false
+        }
+      },
+      "unit": "dollars",
+      "evidence_type": "simulated_with_certified_bounds",
+      "source": "data\\processed\\decision_refinement\\decision_refinement_results.json",
+      "scope": "Post-budget refinement on original group; original time-boxed result preserved"
+    },
+    {
+      "claim": "reference_EV_heldout",
+      "value": {
+        "technology": "EV",
+        "reference_subset": "heldout",
+        "listed_references": 100,
+        "qualifying_references": 90,
+        "recovered": 17,
+        "fixed_K": 1000,
+        "recovery": 0.18888888888888888,
+        "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+    },
+    {
+      "claim": "reference_EV_unused_development",
+      "value": {
+        "technology": "EV",
+        "reference_subset": "unused_development",
+        "listed_references": 100,
+        "qualifying_references": 91,
+        "recovered": 23,
+        "fixed_K": 1000,
+        "recovery": 0.25274725274725274,
+        "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+    },
+    {
+      "claim": "reference_HP_heldout",
+      "value": {
+        "technology": "HP",
+        "reference_subset": "heldout",
+        "listed_references": 50,
+        "qualifying_references": 43,
+        "recovered": 4,
+        "fixed_K": 500,
+        "recovery": 0.09302325581395349,
+        "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+    },
+    {
+      "claim": "reference_HP_unused_development",
+      "value": {
+        "technology": "HP",
+        "reference_subset": "unused_development",
+        "listed_references": 50,
+        "qualifying_references": 43,
+        "recovered": 5,
+        "fixed_K": 500,
+        "recovery": 0.11627906976744186,
+        "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+      },
+      "unit": "references",
+      "evidence_type": "evaluated",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Same frozen label-blind rules, no retuning. Likely partial reference recovery, not precision; unlisted unknown. Secondary unused half reported separately, not a prospective ownership validation."
+    },
+    {
+      "claim": "outreach_priority_managed_charging_offer",
+      "value": {
+        "offer": "managed_charging_offer",
+        "name": "Managed EV charging",
+        "qualified_population": 33674,
+        "candidate_count": 17493,
+        "assumed_review_budget": 1000,
+        "planned_reviews": 1000,
+        "ranking_fields": [
+          "ev_estimated_summer_evening_kwh",
+          "ev_score"
+        ],
+        "candidate_evening_mean_p50_kw": 1.5552699287772935,
+        "review_list_evening_mean_p50_kw": 2.528567492161036,
+        "review_list_priority_metric_p50": 170.22800101339817,
+        "recommended_action": "Confirm EV/charger, plug-in window, consent and ready-by; then assess controllable overlap.",
+        "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+      },
+      "unit": "customers / kW",
+      "evidence_type": "estimated_ranking_with_assumed_budget",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+    },
+    {
+      "claim": "outreach_priority_thermostat_offer",
+      "value": {
+        "offer": "thermostat_offer",
+        "name": "Thermostat outreach",
+        "qualified_population": 33674,
+        "candidate_count": 7593,
+        "assumed_review_budget": 500,
+        "planned_reviews": 500,
+        "ranking_fields": [
+          "thermal_weather_response_kw",
+          "thermal_score"
+        ],
+        "candidate_evening_mean_p50_kw": 1.8208985554351322,
+        "review_list_evening_mean_p50_kw": 1.373086065069708,
+        "review_list_priority_metric_p50": 4.639297519520753,
+        "recommended_action": "Confirm HVAC type and thermostat/control compatibility; assess comfort constraints.",
+        "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+      },
+      "unit": "customers / kW",
+      "evidence_type": "estimated_ranking_with_assumed_budget",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+    },
+    {
+      "claim": "outreach_priority_home_battery_offer",
+      "value": {
+        "offer": "home_battery_offer",
+        "name": "BTM battery assessment",
+        "qualified_population": 33674,
+        "candidate_count": 5766,
+        "assumed_review_budget": 500,
+        "planned_reviews": 500,
+        "ranking_fields": [
+          "screened_residual_evening_mean_kw",
+          "summer_evening_p90_kw"
+        ],
+        "candidate_evening_mean_p50_kw": 2.610547453077471,
+        "review_list_evening_mean_p50_kw": 4.6138467807847805,
+        "review_list_priority_metric_p50": 4.49974884129948,
+        "recommended_action": "Constrained site-specific sizing, service/interconnection review and installer quote; not approval.",
+        "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+      },
+      "unit": "customers / kW",
+      "evidence_type": "estimated_ranking_with_assumed_budget",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+    },
+    {
+      "claim": "outreach_priority_export_eligibility_offer",
+      "value": {
+        "offer": "export_eligibility_offer",
+        "name": "PV export eligibility",
+        "qualified_population": 33674,
+        "candidate_count": 393,
+        "assumed_review_budget": 500,
+        "planned_reviews": 393,
+        "ranking_fields": [
+          "pv_evidence_score"
+        ],
+        "candidate_evening_mean_p50_kw": 1.1113534799611517,
+        "review_list_evening_mean_p50_kw": 1.1113534799611517,
+        "review_list_priority_metric_p50": 100.0,
+        "recommended_action": "Confirm generation surplus, interconnection, meter arrangement and export rights; no payment assumed.",
+        "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+      },
+      "unit": "customers / kW",
+      "evidence_type": "estimated_ranking_with_assumed_budget",
+      "source": "data\\processed\\outreach_evidence\\outreach_evidence_results.json",
+      "scope": "Assumed outreach capacity, not measured enrollment. Offer priority uses program-relevant evidence proxies, not calibrated probabilities, assured flexibility, or installed battery feasibility. Export list has equal PV evidence: ID tie order is administrative, not benefit ranking."
+    }
+  ],
+  "instruction": "Use these source-backed numbers with their scope in the PowerPoint. This manifest does not inspect the actual deck. Supplementary details are in final_analysis_results.json."
+}
