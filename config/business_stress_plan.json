@@ -1,0 +1,22 @@
+{
+  "version": "cleargrid-six-group-stress-v1",
+  "seed": 2026111301,
+  "groups": 6,
+  "homes_per_group": 30,
+  "sampling_rule": "One NumPy default_rng(seed).choice(ascending eligible IDs excluding the verified showcase, size=(6,30), replace=False); preserve draw order; no replacement across the six groups.",
+  "annual_coverage_minimum": 0.995,
+  "summer_start": "2026-06-01",
+  "summer_stop_exclusive": "2026-09-01",
+  "peak_reduction_fraction": 0.15,
+  "common_hours_rule": "Intersect complete finite household hours within each group; same observed common hours and cap for both battery options; no imputation; split at gaps with existing full-SOC segment boundaries.",
+  "load_basis": "Measured, unshifted hourly AMI; synthetic neighborhoods, not feeder mapping.",
+  "storage_rules": "Existing model: 20% reserve, symmetric sqrt(0.894) efficiency, home no-export, 0-2 modules per home, full SOC at each complete segment boundary; shared 5 kWh / 2.5 kW increments.",
+  "costs": "Assumed: homes $8,500/module + $3,000/site; shared $15,000 + $650/kWh at modeled power.",
+  "global_time_limit_seconds": 3600,
+  "group_time_limit_seconds": 300,
+  "shared_solver_time_limit_seconds": 45,
+  "home_mip_time_limit_seconds": 120,
+  "minimum_certified_comparisons_for_summary": 4,
+  "outcome_rule": "Count strict wins only when a feasible upper cost is below the other option's certified lower bound; ties require both cost intervals to collapse to the same value. Otherwise unresolved. Include all six groups and all timeouts.",
+  "fallback": "If fewer than four comparisons are certified, lead with showcase installed-cost sensitivity: shared $50,750 vs homes $60,000; +$9,250 shared installed cost erases the advantage, all else equal."
+}

@@ -1,0 +1,9 @@
+{
+  "customer_numbers": [],
+  "expected_inputs": {
+    "summer_peak_kw": 80.153,
+    "summer_peak_hour_start": "2026-07-03 14:00:00",
+    "summer_hours": 2184,
+    "summer_diversity": 2.022744
+  }
+}

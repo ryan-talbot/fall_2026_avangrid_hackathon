@@ -1,0 +1,7 @@
+{
+  "shared_power_kw": 12.5,
+  "shared_energy_kwh": 55.0,
+  "home_display_numbers": [6, 11, 19],
+  "modules_per_home": 2,
+  "placement_provenance": "Original-analysis display placements; actual meter ID mapping belongs only in ignored local data/config/original_showcase.json."
+}
