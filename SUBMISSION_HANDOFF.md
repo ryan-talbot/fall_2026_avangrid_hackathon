@@ -140,6 +140,7 @@ without regenerating the preserved historical figures:
 .\.venv\Scripts\python.exe src/submission_figures.py
 .\.venv\Scripts\python.exe src/business_stress.py --summarize
 .\.venv\Scripts\python.exe src/business_figures.py
+ .\.venv\Scripts\python.exe src/rubric_review.py
 .\.venv\Scripts\python.exe src/verify_submission.py
 .\.venv\Scripts\python.exe src/package_submission.py
 ```
@@ -155,6 +156,7 @@ To deliberately rerun the entire analysis from authorized local inputs:
 .\.venv\Scripts\python.exe src/submission_figures.py
 .\.venv\Scripts\python.exe src/business_stress.py
 .\.venv\Scripts\python.exe src/business_figures.py
+.\.venv\Scripts\python.exe src/rubric_review.py
 .\.venv\Scripts\python.exe src/verify_submission.py
 .\.venv\Scripts\python.exe src/package_submission.py
 ```
@@ -187,7 +189,7 @@ CHECKPOINT.md, MILESTONE.md, FINAL_VALIDATION.md and this guide. Review first:
 
 ```powershell
 git status --short --untracked-files=all
-git add README.md requirements.txt requirements-analysis.txt AGENTS.md PROJECT_BRIEF.md CHECKPOINT.md MILESTONE.md FINAL_VALIDATION.md SUBMISSION_HANDOFF.md src/*.py config/*.json
+git add README.md requirements.txt requirements-analysis.txt AGENTS.md PROJECT_BRIEF.md CHECKPOINT.md MILESTONE.md FINAL_VALIDATION.md SUBMISSION_HANDOFF.md RUBRIC_ALIGNMENT.md src/*.py config/*.json
 git diff --cached --stat
 git status --short
 ```
@@ -202,3 +204,23 @@ placeholder in `NN_ClearGrid_Final Submission.pptx`, and submit through the
 organizer's SharePoint folder with the runnable code/GitHub link. The deck is
 the scored deliverable; the final PPTX and its submission have not been created
 or uploaded here.
+
+
+## Rubric review and new judge-facing panels
+
+Read [RUBRIC_ALIGNMENT.md](RUBRIC_ALIGNMENT.md) for all 18 rubric criteria,
+the optional bonus, evidence gaps and a recommended 12-slide narrative.
+These three figures are SVG/PNG pairs under
+`data/processed/submission_package/figures/`:
+
+| File stem | Supported takeaway / slide caption |
+|---|---|
+| `cleargrid_rubric_impact` | Meter evidence supports targeted outreach and conditional storage comparisons. Caption: Measured peak, simulated relief and shifting, assumed installed prices, held-out recovery and stress-test limits are separate evidence types. |
+| `cleargrid_rubric_workflow` | Fair comparisons require the same load, hours, cap and storage assumptions. Caption: Frozen screening, constrained sizing and causal replay answer different questions; production scale remains proposed. |
+| `cleargrid_rubric_pilot` | The next utility action is a gated pilot assessment. Caption: Proposed roles and gates cover customer confirmation, topology/interconnection, quote-based economics and prospective stress testing; no field pilot has been executed. |
+
+Do not claim complete appliance identification, verified bill savings, a
+representative feeder sample or held-out success for full-record-sized equipment.
+The finished PowerPoint still requires assembly and render review. The new rubric
+review source/documentation must be committed and pushed if repository handoff
+should include this revision; generated figures and ZIPs remain local and ignored.

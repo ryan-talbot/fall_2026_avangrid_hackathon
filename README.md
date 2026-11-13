@@ -250,6 +250,7 @@ All relevant hand checks can be run together:
 Verify the full evidence handoff and create local archives:
 
 ```powershell
+.\.venv\Scripts\python.exe src/rubric_review.py
 .\.venv\Scripts\python.exe src/verify_submission.py
 .\.venv\Scripts\python.exe src/package_submission.py
 ```
@@ -260,6 +261,16 @@ heat-wave scope and Git exclusions. The code ZIP is allowlisted to source,
 documentation and safe templates; it contains no `data/` inputs or outputs.
 The separate local deck-asset ZIP contains the requested anonymized figures.
 Both archives stay under ignored `data/processed/submission_package/`.
+
+The criterion-by-criterion review and recommended 12-slide story are in
+[RUBRIC_ALIGNMENT.md](RUBRIC_ALIGNMENT.md). The rubric review command reads
+existing verified outputs and creates `cleargrid_rubric_impact`,
+`cleargrid_rubric_workflow`, and `cleargrid_rubric_pilot` as SVG/PNG pairs in
+`data/processed/submission_package/figures/`. These make quantified impact,
+technical rigor, scalability limits and proposed utility actions visible.
+Appliance classification remains partial: reference recovery is not precision,
+and several requested device types are unresolved. No finished PowerPoint is
+present in this repo; its readability and completeness still require review.
 
 The slide teammate's exact paths, captions, supported claims and remaining
 submission actions are in `SUBMISSION_HANDOFF.md`. The PowerPoint still needs

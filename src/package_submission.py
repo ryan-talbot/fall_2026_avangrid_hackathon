@@ -12,6 +12,7 @@ DEST=ROOT/'data/processed/submission_package'
 
 def source_files():
     root_names=['.gitignore','README.md','requirements.txt','requirements-analysis.txt','AGENTS.md','PROJECT_BRIEF.md','CHECKPOINT.md','MILESTONE.md','FINAL_VALIDATION.md','SUBMISSION_HANDOFF.md']
+    root_names.append('RUBRIC_ALIGNMENT.md')
     config_names=['screening_rules.json','business_stress_plan.json','original_showcase.template.json','original_historical_fleet.template.json']
     files=[ROOT/n for n in root_names]+sorted((ROOT/'src').glob('*.py'))+[ROOT/'config'/n for n in config_names]
     return files
@@ -31,11 +32,12 @@ def main():
     # Only anonymized/aggregate figures and the slide guide go into this LOCAL
     # asset ZIP. No original AMI files, raw IDs, reference lists or arrays.
     assets.append(ROOT/'SUBMISSION_HANDOFF.md')
+    assets.append(ROOT/'RUBRIC_ALIGNMENT.md')
     asset_zip=DEST/'ClearGrid_deck_evidence.zip'
     with zipfile.ZipFile(asset_zip,'w',compression=zipfile.ZIP_DEFLATED) as z:
         for p in assets:
             prefix='verified_historical' if p.parent==historic else 'new_evidence'
-            z.write(p,('SUBMISSION_HANDOFF.md' if p.name=='SUBMISSION_HANDOFF.md' else prefix+'/'+p.name))
+            z.write(p,(p.name if p.parent==ROOT else prefix+'/'+p.name))
     with zipfile.ZipFile(code_zip) as z:
         if z.testzip() is not None:raise ValueError('Code ZIP CRC failed')
         assert not any(n.startswith('data/') or n.endswith(('.npy','.npz','.xlsx','.csv','.pdf')) for n in z.namelist())

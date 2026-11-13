@@ -37,6 +37,7 @@ def main():
     assert (counts.denominator==len(offers)).all()
     checks.append('Frozen rules/features, held-out recovery, actual offer counts and denominators match')
     manifests=[ROOT/'data/processed/final_validation/figure_manifest.json',DEST/'submission_figure_manifest.json',DEST/'business_figure_manifest.json']
+    manifests.append(DEST/'rubric_figure_manifest.json')
     for path in manifests:
         m=json.loads(path.read_text())
         for key in ['source_sha256','output_sha256','figure_sha256','protected_figure_sha256']:
