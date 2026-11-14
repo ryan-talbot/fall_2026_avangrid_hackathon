@@ -1,4 +1,4 @@
-"""One-command final acceptance audit and local handoff packaging.
+"""One-command final acceptance audit and local documentation packaging.
 
 Requires completed verified checkpoints; never reruns/overwrites the baseline,
 frozen screening or preregistered six-group solves. No upload or Git mutation.

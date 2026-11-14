@@ -1,13 +1,10 @@
-# Final focus: the 75% business and analytics criteria
+# Results and decision evidence
 
-This is the latest evidence addendum. Read it before older handoff snapshots.
-The rubric weights business value at 40% and analytics/modeling at 35%.
-The strongest supported recommendation is a targeted, engineered pilot
-assessment, with conditional equipment economics and explicitly tested failures.
-This document does not promise a judge score or complete appliance ownership
-identification from hourly net consumption.
+The study compares customer programs and battery designs using common demand
+targets and operating rules. The results support a proposed utility pilot
+assessment with site engineering and installed-price confirmation.
 
-## Business value: close the decision, not just the solver
+## Battery costs
 
 ### Storage preference changes more than once
 
@@ -43,7 +40,7 @@ not excluded. This numerical precision is sufficient to support the tested
 The headline 15% result is unchanged: shared $50,750 versus homes $60,000;
 the $9,250 advantage disappears with that much extra shared upfront cost,
 holding everything else fixed. Annualized scenarios, costs and failures are
-in `FINAL_CODE_HANDOFF.md` and the final-analysis JSON/CSV.
+in `RESULTS.md` and the final-analysis JSON/CSV.
 
 ### All six sampled group comparisons now have a decision
 

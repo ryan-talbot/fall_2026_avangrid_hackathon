@@ -1,6 +1,6 @@
 # PowerPoint assets and evidence
 
-Start with [AI_HANDOFF.md](AI_HANDOFF.md). PNGs are 300 dpi; SVGs are editable
+Start with [PROJECT_GUIDE.md](PROJECT_GUIDE.md). PNGs are 300 dpi; SVGs are editable
 vectors. Each stem below has both extensions in [figures/](figures/).
 
 | Figure stem | Supported takeaway / caption |

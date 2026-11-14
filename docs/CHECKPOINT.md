@@ -1,3 +1,5 @@
+> Historical experiment record. See [current results](DECISION_EVIDENCE.md) for the final combined findings.
+
 # First implementation checkpoint
 
 The repository initially contained only setup documentation, unpinned dependencies,

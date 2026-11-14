@@ -1,6 +1,6 @@
 # Complete analysis runbook
 
-Run all commands from the repository root. The root README and `deck/AI_HANDOFF.md` are the short entry points.
+Run all commands from the repository root. The root README and `deck/PROJECT_GUIDE.md` are the short entry points.
 
 # Avangrid Energy Innovation Hackathon
 
@@ -10,7 +10,7 @@ preference-transition regions to <0.01 percentage point, and resolves group 6
 as a separately labeled $34,500 tie. Ranked offer review queues and secondary
 frozen-rule reference diagnostics are included.
 
-**Final code/evidence handoff:** read [FINAL_CODE_HANDOFF.md](FINAL_CODE_HANDOFF.md).
+**Final code/evidence documentation:** read [RESULTS.md](RESULTS.md).
 After the checkpoints below exist, run `.\.venv\Scripts\python.exe src/finalize.py`
 for the complete acceptance audit and local submission archives. The latest
 supplement adds 7.5% and 12.5% targets, fixed-rule screening benchmarks,
@@ -67,7 +67,7 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
-For the reproducible command-line handoff, the tested direct dependency
+For the reproducible command-line documentation, the tested direct dependency
 versions are pinned in `requirements-analysis.txt` (no notebook UI needed):
 
 ```powershell
@@ -85,7 +85,7 @@ To launch JupyterLab:
 - `data/` - Local datasets, ignored by Git.
 - `docs/` - Methods, runbook and traceable checkpoint notes.
 - `src/` - Python scripts as needed.
-- `deck/` - Selected aggregate figure/evidence export and AI handoff.
+- `deck/` - Selected aggregate figure/evidence export and project guide.
 
 ## First implementation checkpoint
 
@@ -265,7 +265,7 @@ All relevant hand checks can be run together:
 .\.venv\Scripts\python.exe -m unittest discover -s src -p "test_*.py" -v
 ```
 
-Verify the full evidence handoff and create local archives:
+Verify the full evidence documentation and create local archives:
 
 ```powershell
 .\.venv\Scripts\python.exe src/finalize.py
@@ -284,15 +284,9 @@ existing verified outputs and creates `cleargrid_rubric_impact`,
 `cleargrid_rubric_workflow`, and `cleargrid_rubric_pilot` as SVG/PNG pairs in
 `data/processed/submission_package/figures/`. These make quantified impact,
 technical rigor, scalability limits and proposed utility actions visible.
-Appliance classification remains partial: reference recovery is not precision,
-and several requested device types are unresolved. No finished PowerPoint is
-present in this repo; its readability and completeness still require review.
-
-The slide teammate's exact paths, captions, supported claims and remaining
-submission actions are in `SUBMISSION_HANDOFF.md`. The PowerPoint still needs
-to be assembled by the slide teammate, with the organizer's team-number/name
-filename and approved SharePoint submission. Only the deck is scored, so keep
-scope, evidence, assumptions and failure results visible on slides.
+The [submission guide](SUBMISSION.md) describes the completed presentation
+and organizer naming requirements. Appliance classifications remain candidate
+screens, with unknown status preserved.
 
 PowerPoint and code or analytical tool are due via SharePoint on Friday,
 November 13 at 5:00 PM ET.
@@ -305,7 +299,7 @@ four-design replay and six-group stress outputs above. It preserves these and
 runs the final supplementary analysis, 31 hand checks, dependency compatibility,
 input audit, provenance/privacy checks and packaging. It writes a machine-readable
 slide claim register and refuses to package changed accepted source/artifacts.
-It does not upload anything or mutate Git. See `FINAL_CODE_HANDOFF.md` for the
+It does not upload anything or mutate Git. See `RESULTS.md` for the
 current result tables, figure paths, captions, assumptions and unresolved criteria.
 
 After an initial acceptance, this skips repeat CRC/workbook reads but still
@@ -375,4 +369,4 @@ hash-audited inputs/checkpoints rather than re-ingesting all raw rows, and write
 installation uses package repositories; organizer data never leave the machine.
 
 
-GitHub handoff export is prepared by `src/publish_deck_evidence.py` during final acceptance. This is an explicit aggregate allowlist, separate from original ignored household outputs. Start slide work with `deck/AI_HANDOFF.md`.
+GitHub documentation export is prepared by `src/publish_deck_evidence.py` during final acceptance. This is an explicit aggregate allowlist, separate from original ignored household outputs. See `deck/PROJECT_GUIDE.md` for an overview.

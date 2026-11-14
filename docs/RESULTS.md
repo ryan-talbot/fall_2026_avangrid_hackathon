@@ -1,16 +1,8 @@
-**Latest business/analytics addendum:** [DECISION_EVIDENCE.md](DECISION_EVIDENCE.md)
-resolves the sixth comparison as a separately labeled tie, certifies 40 target
-queries with five narrow transition regions, and adds ranked review queues plus
-secondary frozen-rule diagnostics. Older figures/results below remain preserved
-snapshots; use the addendum for current claims.
+# Detailed results and validation
 
-# ClearGrid final code and evidence handoff
-
-The code/evidence milestone is ready for PowerPoint assembly after the local
-acceptance command passes. This is not a certification that every grading
-criterion is fully satisfied: appliance subtype identification remains partial,
-there is no prospective field trial, and the actual PowerPoint has not been
-reviewed. Do not describe these gaps as completed work.
+The [decision evidence](DECISION_EVIDENCE.md) provides the current 40-target
+cost study and all six group decisions. This page documents operating and
+financial scenarios and the acceptance workflow.
 
 ## One acceptance command
 
@@ -158,25 +150,19 @@ Local release files under `data/processed/submission_package/`:
 Packaging refuses changed source or accepted artifacts until acceptance reruns.
 All generated/customer-level outputs, raw/material inputs and actual meter IDs
 remain local and ignored. Only source, safe config and documentation belong in
-Git. The actual PowerPoint remains the slide team's deliverable.
+Git. The presentation package is documented in deck/PRESENTATION.md.
 
-## Criteria that cannot be completed by asserting success in code
+## Further evidence for deployment
 
-We address every rubric area with evidence and a slide recommendation, but
-complete subtype identification, ownership-confirmed classification accuracy,
-tariff-based customer savings, prospective operating reliability and an actual
-network/interconnection design require unavailable data or field work. Known PV
-provides no surplus or battery telemetry, so no fabricated solar benefit is
-included. The shared device is a planning alternative until topology, metering,
-permissions and installation feasibility are established. The 3 kVA figure is
-a service review trigger, not the battery/group cap.
+Appliance subtypes require confirmed device labels. Customer bill savings
+require tariffs. Field reliability requires prospective operating data.
+A physical shared installation requires network, metering and interconnection
+engineering. Known solar membership supports an export check, while measured
+surplus and storage telemetry would support a solar operating scenario.
 
-The team should now assemble the deck, reconcile its numbers to the claim
-register, and review its rendered slides. Those tasks determine communication
-coverage and cannot be certified from this repository alone. Use the strongest
-supported recommendation: confirm ranked customer leads, engineer real sites,
-obtain quotes and shadow-test a fixed design before program expansion.
-
+The completed presentation includes results, methods and assumptions.
+The proposed next step is to confirm customer leads, assess real sites,
+obtain quotes and test fixed equipment before expanding the program.
 
 The latest post-budget decision and outreach evidence is in `DECISION_EVIDENCE.md`.
 A separate isolated-environment acceptance report is saved at

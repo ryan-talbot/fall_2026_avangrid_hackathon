@@ -1,4 +1,4 @@
-r"""Create local code-only and deck-asset handoff ZIPs from explicit allowlists.
+r"""Create local code-only and presentation-asset ZIPs from explicit allowlists.
 
 Never adds organizer data, meter lists or model caches to the code archive.
 """
@@ -22,7 +22,7 @@ def source_files():
 
 def main():
     verification=json.loads((DEST/'verification_report.json').read_text())
-    if not verification['passed']:raise ValueError('Verify the handoff first')
+    if not verification['passed']:raise ValueError('Run submission verification first')
     code=source_files()
     acceptance_path=DEST/'release_acceptance.json'
     if not acceptance_path.exists():raise ValueError('Run src/finalize.py before packaging the final release')
@@ -48,7 +48,7 @@ def main():
         assets+=sorted(extra.glob('*.png'))+sorted(extra.glob('*.svg'))
     # Only anonymized/aggregate figures and the slide guide go into this LOCAL
     # asset ZIP. No original AMI files, raw IDs, reference lists or arrays.
-    assets+=[ROOT/'docs'/name for name in ['SUBMISSION_HANDOFF.md','RUBRIC_ALIGNMENT.md','FINAL_CODE_HANDOFF.md','DECISION_EVIDENCE.md']]
+    assets+=[ROOT/'docs'/name for name in ['SUBMISSION.md','RUBRIC_ALIGNMENT.md','RESULTS.md','DECISION_EVIDENCE.md']]
     asset_zip=DEST/'ClearGrid_deck_evidence.zip'
     with zipfile.ZipFile(asset_zip,'w',compression=zipfile.ZIP_DEFLATED) as z:
         for p in assets:
@@ -59,7 +59,7 @@ def main():
         assert not any(n.startswith('data/') or n.endswith(('.npy','.npz','.xlsx','.csv','.pdf')) for n in z.namelist())
     with zipfile.ZipFile(asset_zip) as z:
         if z.testzip() is not None:raise ValueError('Asset ZIP CRC failed')
-    manifest={'code_zip':str(code_zip.relative_to(ROOT)),'code_sha256':digest(code_zip),'code_members':[str(p.relative_to(ROOT)) for p in code],'deck_assets_zip':str(asset_zip.relative_to(ROOT)),'deck_assets_sha256':digest(asset_zip),'scope':'Both archives remain local and Git-ignored. Code ZIP contains no organizer inputs, meter lists or customer-level outputs. Asset ZIP contains the requested anonymized slide figures for the hackathon handoff only.','powerpoint':'Not assembled here; slide teammate must produce and submit the self-contained PowerPoint.'}
+    manifest={'code_zip':str(code_zip.relative_to(ROOT)),'code_sha256':digest(code_zip),'code_members':[str(p.relative_to(ROOT)) for p in code],'deck_assets_zip':str(asset_zip.relative_to(ROOT)),'deck_assets_sha256':digest(asset_zip),'scope':'Both archives remain local and Git-ignored. Code ZIP contains no organizer inputs, meter lists or customer-level outputs. Asset ZIP contains the requested anonymized slide figures for the authorized hackathon submission only.','powerpoint':'Presentation package is documented in deck/PRESENTATION.md and submitted separately through the organizer channel.'}
     (DEST/'package_manifest.json').write_text(json.dumps(manifest,indent=2))
     print('Code archive:',code_zip,'\nDeck assets:',asset_zip)
 

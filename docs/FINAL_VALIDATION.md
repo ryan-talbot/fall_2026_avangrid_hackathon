@@ -1,3 +1,5 @@
+> Historical experiment record. See [current results](DECISION_EVIDENCE.md) for the final combined findings.
+
 # Final validation and deck figures
 
 Run from the repository root after the original showcase and screening milestone:

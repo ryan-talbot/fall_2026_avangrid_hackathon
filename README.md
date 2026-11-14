@@ -1,51 +1,57 @@
-# ClearGrid — Avangrid hackathon
+# PeakShare · One battery, thirty homes
 
-ClearGrid turns hourly meter and weather evidence into customer outreach
-recommendations and compares managed charging, home batteries and shared
-storage at a common peak-demand cap.
+PeakShare explores a practical question for Avangrid: can one shared battery
+reduce a group of homes' busiest-hour electricity demand at a lower installed
+cost than batteries at individual homes? ClearGrid is the Python analysis
+behind the project.
 
-**Making the PowerPoint? Start with [the AI/teammate handoff](deck/AI_HANDOFF.md).**
-The [final presentation handoff](deck/FINAL_PRESENTATION_HANDOFF.md) identifies
-the latest deck package, final reading sequence and submission naming format.
-GitHub includes aggregate PNG/SVG charts, chart data, 65 source-linked claims,
-methods, assumptions and a slide outline. Raw organizer data, meter IDs and
-household profiles stay local.
+In the verified 30-home historical case, both designs achieve the same 15%
+peak-reduction target. The shared battery costs **$50,750**, compared with
+**$60,000** for batteries at three homes, using the study's assumed prices.
+That is **$9,250 less**, or **15.4% lower installed cost**.
 
-## Find what you need
+![Installed cost at the two headline targets](deck/figures/cleargrid_installed_costs_10_vs_15.png)
 
-| Task | Start here |
+## What the project does
+
+The tool reads hourly electricity use and weather to identify customers for
+managed vehicle charging, thermostat outreach, home battery assessment and
+solar export checks. It then compares battery designs against the same demand
+limit, accounting for available stored energy, charging losses and recharge.
+
+The analysis screens **33,674 qualified meters**. Storage comparisons use
+synthetic groups formed from real household profiles. The data covers
+September 2025 through August 2026.
+
+## Main findings
+
+| Question | Result |
 |---|---|
-| Build slides or give another AI the project | [AI handoff](deck/AI_HANDOFF.md) — copyable prompt and reading order |
-| Browse visuals and captions | [Figure catalog](deck/README.md) |
-| Read the latest results | [Aggregate results](deck/evidence/results.json), [decision evidence](docs/DECISION_EVIDENCE.md) |
-| Check an exact slide claim | [65-claim register](deck/evidence/claims.json), [chart CSVs](deck/evidence/) |
-| Understand the rubric and limitations | [Rubric crosswalk](docs/RUBRIC_ALIGNMENT.md) |
-| Install, obtain inputs or rerun from scratch | [Complete runbook](docs/RUNBOOK.md) |
-| Review the original scope | [PROJECT_BRIEF.md](PROJECT_BRIEF.md) — prior results are historical checkpoints |
-| Inspect algorithms | [Code map](src/README.md), [source](src/) |
+| What peak must the showcase address? | 80.153 kW on July 3, reduced to a 68.130 kW target. |
+| What does the shared design require? | One site, 12.5 kW of power and 55 kWh of stored energy. |
+| What does the home alternative require? | Six modules at three sites, 23.04 kW and 60.48 kWh. |
+| Does shared storage always cost less? | Homes cost less at the 10% target. Shared storage costs less at 15%. |
+| Does the result extend beyond one group? | Five shared wins and one tie across six additional groups after refinement. |
+| Can managed charging reduce the battery need? | The tested scenario moves 19.279 kWh but leaves the July 3 sizing event and equipment sizes unchanged. |
 
-## Supported headline results
+The proposed next step is a utility pilot assessment using verified customer
+participation, a physical site study and installed quotes. Reported costs are
+scenario assumptions. Historical model performance and future field
+performance have different evidence requirements.
 
-- Verified synthetic 30-home group: **80.153 kW** July 3 peak,
-  **2,184 / 2,208** common summer hours, diversity **2.022744**.
-- At 15% reduction: shared **12.5 kW / 55 kWh, $50,750** versus homes
-  **23.04 kW / 60.48 kWh, $60,000**. Prices are assumptions.
-- Forty historical target queries certify 80 minimum-cost option results.
-  Equipment steps create five transition regions, each narrower than
-  **0.01 percentage point**; this is not one smooth crossover.
-- Six additional groups: original time-boxed run five shared wins and one
-  unresolved; separate refinement certifies the last as a **$34,500 tie**.
-  Two wins use home lower bounds, not solved home costs.
-- Original held-out recovery: **EV 17/90 at top 1,000; heating proxy 4/43 at
-  top 500**. Unlisted status is unknown. These are not precision scores.
-- Smaller excluded-date designs fail July 1–4 replay. Larger designs pass
-  after sizing on the full historical record, including those dates.
+## Explore the work
 
-Measured inputs, estimated appliance evidence, simulated operation and assumed
-costs remain distinct. No verified bill savings, complete appliance ownership
-inventory, actual feeder grouping or field guarantee is established.
+| Resource | Contents |
+|---|---|
+| [Project guide](deck/PROJECT_GUIDE.md) | Plain-language explanation of the approach and customer programs. |
+| [Results and methods](docs/DECISION_EVIDENCE.md) | Detailed cost comparisons, customer priorities and supporting analysis. |
+| [Figures and data](deck/README.md) | Published charts, captions and downloadable aggregate data. |
+| [Challenge criteria](docs/RUBRIC_ALIGNMENT.md) | How the submission addresses each grading category. |
+| [Run instructions](docs/RUNBOOK.md) | Dependencies, authorized local data setup and commands. |
+| [Code guide](src/README.md) | Analysis modules and their responsibilities. |
+| [Submission guide](docs/SUBMISSION.md) | Code and presentation deliverables. |
 
-## Run the code
+## Run the checks
 
 Use 64-bit Python 3.12. From the repository root in PowerShell:
 
@@ -55,43 +61,42 @@ python -m venv .venv
 .\.venv\Scripts\python.exe -m unittest discover -s src -p "test_*.py" -v
 ```
 
-The 31 hand checks run without organizer inputs. Follow the [local data setup
-and stage commands](docs/RUNBOOK.md) to reproduce the analysis. Once the verified
-checkpoint outputs exist:
+The 31 checks use small, hand-computable cases and run without organizer data.
+They cover battery limits, energy conservation, recharge across midnight,
+customer demand timing and cost comparisons.
+
+To reproduce the full analysis, follow the [runbook](docs/RUNBOOK.md).
+After completing its data preparation and analysis stages, run:
 
 ```powershell
-.\.venv\Scripts\python.exe src/finalize.py
+.\.venv\Scripts\python.exe src/finalize.py --reuse-input-audit
 ```
 
-This audits inputs, checks frozen results, generates supplemental evidence,
-prepares the aggregate `deck/` export and creates local submission ZIPs.
-`--reuse-input-audit` skips repeat CRC/workbook reads while still checking all
-recorded raw/cache hashes. Separate isolated-environment acceptance passed;
-instructions are in the runbook.
+This verifies recorded input hashes, runs the checks, refreshes aggregate
+evidence and packages the submission locally.
 
-## Layout
+## Evidence and scope
+
+Customer screening identifies candidates for confirmation. Held-out reference
+recovery is 17 of 90 likely EV homes in the top 1,000 and 4 of 43 heat-pump
+references in the top 500. Unlisted appliance status remains unknown.
+
+The showcase uses 2,184 complete summer hours, excluding 24 missing hours.
+Smaller batteries sized without July 1–4 miss the demand limit during that
+period. Larger designs sized with the full historical record pass the same
+replay. These tests support an engineering assessment and a future field pilot.
+
+Organizer inputs, meter identifiers and household-level outputs remain in
+authorized local storage. This repository provides code, methods and aggregate
+evidence. Actual customer bill savings and avoided network investment require
+tariffs, site information and operating measurements.
+
+## Repository layout
 
 ```text
-deck/          Aggregate slide figures, chart data and AI handoff
-docs/          Runbook, methods, rubric mapping and detailed evidence
-src/           Analysis, figure generators, verification and hand checks
-config/        Frozen rules, analysis plans and empty private-ID templates
-data/          Authorized local inputs/results — ignored except .gitkeep
+src/       Analysis, figure generation and verification
+config/    Fixed screening rules, experiment plans and empty ID templates
+deck/      Aggregate figures and supporting data
+docs/      Methods, results, run instructions and challenge coverage
+data/      Authorized local inputs and outputs, excluded from Git
 ```
-
-`requirements-lock.txt` pins all tested analysis dependencies;
-`requirements-analysis.txt` pins direct dependencies. `requirements.txt`
-retains the optional notebook tools.
-
-## Restricted local additions
-
-Organizer inputs, cohort IDs, customer CSVs, household profile images and
-per-site audits are excluded from GitHub. Authorized teammates can use the
-ignored `data/processed/submission_package/ClearGrid_deck_evidence.zip` for
-household examples and detailed placement figures through the approved
-hackathon workspace. Keep restricted material in approved local tooling;
-do not upload it to another AI or external service.
-
-The aggregate GitHub handoff supports the main deck. Restricted examples
-require authorized local access. The slide team assembles the PowerPoint and
-checks its numbers and scope labels against the claim register.

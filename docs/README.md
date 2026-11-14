@@ -1,22 +1,20 @@
-# Documentation reading order
+# Documentation
 
-1. [Latest business/analytics evidence](DECISION_EVIDENCE.md): refined decisions,
-   outreach priorities, validation and the highest-weight rubric criteria.
-2. [Rubric crosswalk](RUBRIC_ALIGNMENT.md): evidence coverage and slide narrative.
-3. [Complete runbook](RUNBOOK.md): authorized local input setup and stage commands.
-4. [Final code handoff](FINAL_CODE_HANDOFF.md): financial/operating sensitivities,
-   acceptance commands and detailed local paths.
-5. [Slide handoff](SUBMISSION_HANDOFF.md): detailed local assets, including private
-   household examples and placement tables.
+Start with the [project guide](../deck/PROJECT_GUIDE.md) for the utility
+problem, customer programs and shared-battery comparison.
 
-Historical checkpoint documentation is retained for traceability:
-[first checkpoint](CHECKPOINT.md), [screening/managed charging](MILESTONE.md),
-and [held-out validation](FINAL_VALIDATION.md). Earlier statements about two/four
-tested targets or an unresolved sixth group describe those earlier snapshots.
-Use the latest decision evidence for the 40-target refinement and group-6 tie.
+| Document | Purpose |
+|---|---|
+| [Decision evidence](DECISION_EVIDENCE.md) | Current cost comparisons, program priorities and validation. |
+| [Results](RESULTS.md) | Detailed operating and financial scenarios and acceptance commands. |
+| [Runbook](RUNBOOK.md) | Installation, local data preparation and analysis commands. |
+| [Challenge criteria](RUBRIC_ALIGNMENT.md) | Evidence against the organizer's grading categories. |
+| [Submission](SUBMISSION.md) | Required code and presentation deliverables. |
 
-For the PowerPoint, use [the GitHub-ready AI handoff](../deck/AI_HANDOFF.md).
-The selected aggregate export in `deck/` is publishable handoff material.
-Original generated/customer files in `data/` remain ignored and local; do not
-force-add them. Local provenance paths in the claim register are not broken
-GitHub downloads—they identify intentionally excluded supporting artifacts.
+The [checkpoint](CHECKPOINT.md), [screening study](MILESTONE.md) and
+[validation study](FINAL_VALIDATION.md) preserve earlier experiment records.
+Their original results remain traceable. Current conclusions include the
+40-target cost refinement and the sixth group's subsequently established tie.
+
+Restricted input and household-output paths identify authorized local files.
+The public [figure catalog](../deck/README.md) provides aggregate evidence.

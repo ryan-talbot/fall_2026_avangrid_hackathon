@@ -1,4 +1,4 @@
-"""Export an explicit aggregate-only GitHub handoff; never copies customer data.
+"""Export an explicit aggregate-only GitHub documentation; never copies customer data.
 
 This script prepares files locally. Git commit/push is a separate user action.
 Raw AMI, reference IDs, household profiles, per-site dispatch and customer
@@ -85,6 +85,6 @@ def main():
     sources += [baseline/'showcase_results.json',ROOT/final_path,ROOT/ref_path,ROOT/outreach_path,claims_source,ROOT/'data/processed/submission_package/verification_report.json',ROOT/'src/publish_deck_evidence.py']
     outputs += sorted((DEST/'evidence').glob('*.json'))+sorted((DEST/'evidence').glob('*.csv'))
     (DEST/'manifest.json').write_text(json.dumps({'publication_scope':'Explicit allowlist of aggregate results and figures. Customer-specific examples and placements with household load evidence remain in the ignored local deck ZIP. Local provenance sources are intentionally not downloadable from GitHub.','source_sha256':{p.relative_to(ROOT).as_posix():digest(p) for p in sources},'output_sha256':{p.relative_to(ROOT).as_posix():digest(p) for p in outputs}},indent=2),encoding='utf-8')
-    print('Prepared GitHub aggregate deck handoff:',len(allowlist['historical'])+sum(len(v) for k,v in allowlist.items() if k!='historical'),'figures,',len(costs),'cost rows')
+    print('Prepared GitHub aggregate deck documentation:',len(allowlist['historical'])+sum(len(v) for k,v in allowlist.items() if k!='historical'),'figures,',len(costs),'cost rows')
 
 if __name__=='__main__':main()

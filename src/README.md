@@ -5,7 +5,7 @@ Run commands from the repository root. See `docs/RUNBOOK.md` for the full sequen
 | Purpose | Files |
 |---|---|
 | Final acceptance and packaging | `finalize.py`, `verify_submission.py`, `package_submission.py`, `clean_acceptance.py` |
-| Aggregate GitHub handoff | `publish_deck_evidence.py` — explicit allowlist, no customer exports |
+| Aggregate GitHub documentation | `publish_deck_evidence.py` — explicit allowlist, no customer exports |
 | Input audit and chunked cache | `inventory.py`, `load_data.py` |
 | Historical showcase and baseline | `checkpoint.py`, `showcase.py`, `baseline.py` |
 | Constrained sizing and dispatch | `model.py` |

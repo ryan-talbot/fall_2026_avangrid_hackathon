@@ -1,3 +1,5 @@
+> Historical experiment record. See [current results](DECISION_EVIDENCE.md) for the final combined findings.
+
 # Screening, offers, and managed charging
 
 Run from the repository root after the verified original showcase exists:
