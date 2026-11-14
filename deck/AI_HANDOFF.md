@@ -1,5 +1,9 @@
 # Teammate and AI PowerPoint handoff
 
+The final reading sequence, local presentation package and organizer naming
+instructions are in [Final presentation handoff](FINAL_PRESENTATION_HANDOFF.md).
+Use that sequence in place of the earlier suggested outline below.
+
 An AI with GitHub access can read the evidence and use these PNG/SVG charts.
 If its connector cannot fetch images, clone/download the repository and give
 it the aggregate `deck/` folder. Do not upload raw or customer-level organizer

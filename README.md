@@ -5,6 +5,8 @@ recommendations and compares managed charging, home batteries and shared
 storage at a common peak-demand cap.
 
 **Making the PowerPoint? Start with [the AI/teammate handoff](deck/AI_HANDOFF.md).**
+The [final presentation handoff](deck/FINAL_PRESENTATION_HANDOFF.md) identifies
+the latest deck package, final reading sequence and submission naming format.
 GitHub includes aggregate PNG/SVG charts, chart data, 65 source-linked claims,
 methods, assumptions and a slide outline. Raw organizer data, meter IDs and
 household profiles stay local.
